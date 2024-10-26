@@ -2,6 +2,7 @@ import NextAuth from "next-auth/next";
 import CredentialsProvider from "next-auth/providers/credentials";
 import User from "../../../models/User";
 import { verifyPassword } from "../../../utils/auth";
+import connectDB from "../../../utils/connectDB";
 
 const authOptions = {
     session: { strategy: "jwt" },
@@ -19,6 +20,7 @@ const authOptions = {
                 try {
                     await connectDB();
                 } catch (error) {
+                    console.log(error);
                     throw new Error("Error in connecting to DB")
                 }
                 if(!email || !password) {
