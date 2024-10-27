@@ -8,6 +8,9 @@ export default function Home() {
     <>
       <h1>Next Auth Credentials</h1>
       <button>
+        <Link href="/dashboard">Dashboard</Link>
+      </button>
+      <button>
         <Link href="/signup">Register</Link>
       </button>
       <button>

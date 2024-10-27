@@ -15,8 +15,7 @@ const SignIn = () => {
             password,
             redirect: false
         });
-        console.log(res);
-        console.log(res.error);
+
         if (!res.error) {
             router.replace("/");
         }

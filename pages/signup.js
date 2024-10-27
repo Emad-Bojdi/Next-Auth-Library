@@ -1,9 +1,11 @@
+import { useRouter } from "next/router";
 import { useState } from "react";
 
 const SignUp = () => {
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const router = useRouter();
 
     const handleSignUp = async () => {
         const res = await fetch("/api/auth/signup", {
@@ -14,6 +16,9 @@ const SignUp = () => {
             }
         })
         const data = await res.json();
+        if (data.status === "success") {
+            router.replace("/dashboard");
+        }
         console.log(data);
     }
 
